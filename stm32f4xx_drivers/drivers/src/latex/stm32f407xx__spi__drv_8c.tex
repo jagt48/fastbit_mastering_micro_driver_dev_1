@@ -1,0 +1,138 @@
+\hypertarget{stm32f407xx__spi__drv_8c}{}\doxysection{stm32f407xx\+\_\+spi\+\_\+drv.\+c File Reference}
+\label{stm32f407xx__spi__drv_8c}\index{stm32f407xx\_spi\_drv.c@{stm32f407xx\_spi\_drv.c}}
+
+
+This driver sets up a basic I/O interface for the S\+T\+M32\+F407xx S\+PI peripheral.  
+
+
+{\ttfamily \#include \char`\"{}stm32f407xx\+\_\+spi\+\_\+drv.\+h\char`\"{}}\newline
+Include dependency graph for stm32f407xx\+\_\+spi\+\_\+drv.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{stm32f407xx__spi__drv_8c_afbcf98a55b1460cf2aadcf328954fe1e}{S\+P\+I\+\_\+\+Clk\+Ctrl}} (S\+P\+I\+\_\+\+Reg\+Def\+\_\+t $\ast$p\+S\+P\+Ix, uint8\+\_\+t En)
+\begin{DoxyCompactList}\small\item\em Enable/disable clock for S\+PI peripheral. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32f407xx__spi__drv_8c_a4ce11fe34382425f87f43df7e33eaa49}{S\+P\+I\+\_\+\+Init}} (S\+P\+I\+\_\+\+Handle\+\_\+t $\ast$p\+S\+P\+I\+Handle)
+\begin{DoxyCompactList}\small\item\em Initialize the S\+PI peripheral using user-\/defined parameters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_aedcadc52bc7fb8e6c69a689ce029940b}\label{stm32f407xx__spi__drv_8c_aedcadc52bc7fb8e6c69a689ce029940b}} 
+void {\bfseries S\+P\+I\+\_\+\+De\+Init} (S\+P\+I\+\_\+\+Reg\+Def\+\_\+t $\ast$p\+S\+P\+Ix)
+\item 
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_a3429e471ec851e1294e2c2a46ba5ee27}\label{stm32f407xx__spi__drv_8c_a3429e471ec851e1294e2c2a46ba5ee27}} 
+void {\bfseries S\+P\+I\+\_\+\+Send\+Data} (S\+P\+I\+\_\+\+Reg\+Def\+\_\+t $\ast$p\+S\+P\+Ix, uint8\+\_\+t $\ast$p\+Tx\+Buffer, uint32\+\_\+t Len)
+\item 
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_a4cc209b826ae36f96fa5d1f962a5d801}\label{stm32f407xx__spi__drv_8c_a4cc209b826ae36f96fa5d1f962a5d801}} 
+uint8\+\_\+t {\bfseries S\+P\+I\+\_\+\+Send\+Data\+IT} (S\+P\+I\+\_\+\+Handle\+\_\+t $\ast$p\+S\+P\+I\+Handle, uint8\+\_\+t $\ast$p\+Tx\+Buffer, uint32\+\_\+t Len)
+\item 
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_ae15a4f338eeabf175b48a85716ead033}\label{stm32f407xx__spi__drv_8c_ae15a4f338eeabf175b48a85716ead033}} 
+uint8\+\_\+t {\bfseries S\+P\+I\+\_\+\+Receive\+Data\+IT} (S\+P\+I\+\_\+\+Handle\+\_\+t $\ast$p\+S\+P\+I\+Handle, uint8\+\_\+t $\ast$p\+Rx\+Buffer, uint32\+\_\+t Len)
+\item 
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_afa0140875300073c700e84c14ba8b66e}\label{stm32f407xx__spi__drv_8c_afa0140875300073c700e84c14ba8b66e}} 
+void {\bfseries S\+P\+I\+\_\+\+Receive\+Data} (S\+P\+I\+\_\+\+Reg\+Def\+\_\+t $\ast$p\+S\+P\+Ix, uint8\+\_\+t $\ast$p\+Rx\+Buffer, uint32\+\_\+t Len)
+\item 
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_abecda55b24900d008d8353ce15f69589}\label{stm32f407xx__spi__drv_8c_abecda55b24900d008d8353ce15f69589}} 
+void {\bfseries S\+P\+I\+\_\+\+I\+R\+Q\+Interrupt\+Config} (uint8\+\_\+t I\+R\+Q\+Number, uint8\+\_\+t En)
+\item 
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_acef4c81fb6d8ba348abd390234b07e49}\label{stm32f407xx__spi__drv_8c_acef4c81fb6d8ba348abd390234b07e49}} 
+void {\bfseries S\+P\+I\+\_\+\+I\+R\+Q\+Priority\+Config} (uint8\+\_\+t I\+R\+Q\+Number, uint8\+\_\+t I\+R\+Q\+Priority)
+\item 
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_a39f72d0d27f6e2c35fb4858c8a9ca9be}\label{stm32f407xx__spi__drv_8c_a39f72d0d27f6e2c35fb4858c8a9ca9be}} 
+void {\bfseries S\+P\+I\+\_\+\+I\+R\+Q\+Handling} (S\+P\+I\+\_\+\+Handle\+\_\+t $\ast$p\+Handle)
+\item 
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_a536a9ac69105446088a04d1686928cd9}\label{stm32f407xx__spi__drv_8c_a536a9ac69105446088a04d1686928cd9}} 
+uint8\+\_\+t {\bfseries S\+P\+I\+\_\+\+Get\+Flag\+Status} (S\+P\+I\+\_\+\+Reg\+Def\+\_\+t $\ast$p\+S\+P\+Ix, uint32\+\_\+t Flag\+Name)
+\item 
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_a6e94a34b6619216a5bcf4df511316c03}\label{stm32f407xx__spi__drv_8c_a6e94a34b6619216a5bcf4df511316c03}} 
+void {\bfseries S\+P\+I\+\_\+\+Peripheral\+Control} (S\+P\+I\+\_\+\+Reg\+Def\+\_\+t $\ast$p\+S\+P\+Ix, uint8\+\_\+t En)
+\item 
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_a21629144d52f082607b995442eccb156}\label{stm32f407xx__spi__drv_8c_a21629144d52f082607b995442eccb156}} 
+void {\bfseries S\+P\+I\+\_\+\+S\+S\+I\+Config} (S\+P\+I\+\_\+\+Reg\+Def\+\_\+t $\ast$p\+S\+P\+Ix, uint8\+\_\+t En)
+\item 
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_ab1e8cd6b7a5821df0fbc19fa139a87d5}\label{stm32f407xx__spi__drv_8c_ab1e8cd6b7a5821df0fbc19fa139a87d5}} 
+void {\bfseries S\+P\+I\+\_\+\+S\+S\+O\+E\+Config} (S\+P\+I\+\_\+\+Reg\+Def\+\_\+t $\ast$p\+S\+P\+Ix, uint8\+\_\+t En)
+\item 
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_a2ef4b43fd195191c0ceaadf1d76d5825}\label{stm32f407xx__spi__drv_8c_a2ef4b43fd195191c0ceaadf1d76d5825}} 
+void {\bfseries S\+P\+I\+\_\+\+Clear\+O\+V\+R\+Flag} (S\+P\+I\+\_\+\+Reg\+Def\+\_\+t $\ast$p\+S\+P\+IX)
+\item 
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_ab99d043e116c09f9615a968a3296d3bb}\label{stm32f407xx__spi__drv_8c_ab99d043e116c09f9615a968a3296d3bb}} 
+void {\bfseries S\+P\+I\+\_\+\+Close\+Tx} (S\+P\+I\+\_\+\+Handle\+\_\+t $\ast$p\+S\+P\+I\+Handle)
+\item 
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_a670f7a8e89c8931f6f8d4b9125e9f27d}\label{stm32f407xx__spi__drv_8c_a670f7a8e89c8931f6f8d4b9125e9f27d}} 
+void {\bfseries S\+P\+I\+\_\+\+Close\+Rx} (S\+P\+I\+\_\+\+Handle\+\_\+t $\ast$p\+S\+P\+I\+Handle)
+\item 
+\+\_\+\+\_\+weak void \mbox{\hyperlink{stm32f407xx__spi__drv_8c_a17e252c32b3884610842880574690b7b}{S\+P\+I\+\_\+\+Application\+Event\+Callback}} (S\+P\+I\+\_\+\+Handle\+\_\+t $\ast$p\+S\+P\+I\+Handle, uint8\+\_\+t App\+Ev)
+\begin{DoxyCompactList}\small\item\em Callback for I\+RQ. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This driver sets up a basic I/O interface for the S\+T\+M32\+F407xx S\+PI peripheral. 
+
+\begin{DoxyAuthor}{Author}
+Joseph Gillispie \href{mailto:jagt48@gmail.com}{\texttt{ jagt48@gmail.\+com}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_a17e252c32b3884610842880574690b7b}\label{stm32f407xx__spi__drv_8c_a17e252c32b3884610842880574690b7b}} 
+\index{stm32f407xx\_spi\_drv.c@{stm32f407xx\_spi\_drv.c}!SPI\_ApplicationEventCallback@{SPI\_ApplicationEventCallback}}
+\index{SPI\_ApplicationEventCallback@{SPI\_ApplicationEventCallback}!stm32f407xx\_spi\_drv.c@{stm32f407xx\_spi\_drv.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_ApplicationEventCallback()}{SPI\_ApplicationEventCallback()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak void S\+P\+I\+\_\+\+Application\+Event\+Callback (\begin{DoxyParamCaption}\item[{S\+P\+I\+\_\+\+Handle\+\_\+t $\ast$}]{p\+S\+P\+I\+Handle,  }\item[{uint8\+\_\+t}]{App\+Ev }\end{DoxyParamCaption})}
+
+
+
+Callback for I\+RQ. 
+
+@fun \mbox{\hyperlink{stm32f407xx__spi__drv_8c_a17e252c32b3884610842880574690b7b}{S\+P\+I\+\_\+\+Application\+Event\+Callback(\+S\+P\+I\+\_\+\+Handle\+\_\+t $\ast$p\+S\+P\+I\+Handle, uint8\+\_\+t App\+Ev)}}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+S\+P\+I\+Handle} & Handle for I2\+Cx \\
+\hline
+\mbox{\texttt{ in}}  & {\em App\+Ev} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+@\+Note Can be overridden by user application \mbox{\Hypertarget{stm32f407xx__spi__drv_8c_afbcf98a55b1460cf2aadcf328954fe1e}\label{stm32f407xx__spi__drv_8c_afbcf98a55b1460cf2aadcf328954fe1e}} 
+\index{stm32f407xx\_spi\_drv.c@{stm32f407xx\_spi\_drv.c}!SPI\_ClkCtrl@{SPI\_ClkCtrl}}
+\index{SPI\_ClkCtrl@{SPI\_ClkCtrl}!stm32f407xx\_spi\_drv.c@{stm32f407xx\_spi\_drv.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_ClkCtrl()}{SPI\_ClkCtrl()}}
+{\footnotesize\ttfamily void S\+P\+I\+\_\+\+Clk\+Ctrl (\begin{DoxyParamCaption}\item[{S\+P\+I\+\_\+\+Reg\+Def\+\_\+t $\ast$}]{p\+S\+P\+Ix,  }\item[{uint8\+\_\+t}]{En }\end{DoxyParamCaption})}
+
+
+
+Enable/disable clock for S\+PI peripheral. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+S\+P\+Ix} & S\+PI peripheral used. \\
+\hline
+\mbox{\texttt{ in}}  & {\em En} & Enable bit.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+@\+Note Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{stm32f407xx__spi__drv_8c_a4ce11fe34382425f87f43df7e33eaa49}\label{stm32f407xx__spi__drv_8c_a4ce11fe34382425f87f43df7e33eaa49}} 
+\index{stm32f407xx\_spi\_drv.c@{stm32f407xx\_spi\_drv.c}!SPI\_Init@{SPI\_Init}}
+\index{SPI\_Init@{SPI\_Init}!stm32f407xx\_spi\_drv.c@{stm32f407xx\_spi\_drv.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_Init()}{SPI\_Init()}}
+{\footnotesize\ttfamily void S\+P\+I\+\_\+\+Init (\begin{DoxyParamCaption}\item[{S\+P\+I\+\_\+\+Handle\+\_\+t $\ast$}]{p\+S\+P\+I\+Handle }\end{DoxyParamCaption})}
+
+
+
+Initialize the S\+PI peripheral using user-\/defined parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+S\+P\+I\+Handle} & Pointer to the structure containing user-\/defined parameters.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+@\+Note 

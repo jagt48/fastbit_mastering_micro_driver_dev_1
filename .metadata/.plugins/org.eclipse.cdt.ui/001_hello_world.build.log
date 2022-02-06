@@ -1,0 +1,20 @@
+10:29:31 **** Incremental Build of configuration Debug for project 001_hello_world ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "001_hello_world.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/joseph/Documents/workspace.fastbit/mastering_micro_driver_dev_1/workspace/001_hello_world/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001_hello_world.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001_hello_world.elf
+ 
+arm-none-eabi-size   001_hello_world.elf 
+arm-none-eabi-objdump -h -S  001_hello_world.elf  > "001_hello_world.list"
+   text	   data	    bss	    dec	    hex	filename
+   3664	    108	   1596	   5368	   14f8	001_hello_world.elf
+arm-none-eabi-objcopy  -O binary  001_hello_world.elf  "001_hello_world.bin"
+Finished building: default.size.stdout
+ 
+Finished building: 001_hello_world.bin
+ 
+Finished building: 001_hello_world.list
+ 
+
+10:29:32 Build Finished. 0 errors, 0 warnings. (took 1s.237ms)
+

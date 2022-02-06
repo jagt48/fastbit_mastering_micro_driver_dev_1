@@ -1,0 +1,299 @@
+\hypertarget{stm32f407xx__i2c__drv_8c}{}\doxysection{stm32f407xx\+\_\+i2c\+\_\+drv.\+c File Reference}
+\label{stm32f407xx__i2c__drv_8c}\index{stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}}
+
+
+This driver sets up a basic I/O interface for the S\+T\+M32\+F407xx I2C peripheral.  
+
+
+{\ttfamily \#include \char`\"{}stm32f407xx\+\_\+i2c\+\_\+drv.\+h\char`\"{}}\newline
+Include dependency graph for stm32f407xx\+\_\+i2c\+\_\+drv.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{stm32f407xx__i2c__drv_8c_a07e83806dd03ae8c1e8b0ac4b3e0d9f6}{I2\+C\+\_\+\+Clk\+Ctrl}} (I2\+C\+\_\+\+Reg\+Def\+\_\+t $\ast$p\+I2\+Cx, uint8\+\_\+t En)
+\begin{DoxyCompactList}\small\item\em Enable/disable the I2\+Cx peripheral clock. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32f407xx__i2c__drv_8c_ad35cc19f56a0a0c67570c2adc41fed14}{I2\+C\+\_\+\+Init}} (I2\+C\+\_\+\+Handle\+\_\+t $\ast$p\+I2\+C\+Handle)
+\begin{DoxyCompactList}\small\item\em Initialize the I2\+Cx peripheral. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32f407xx__i2c__drv_8c_a23c006eb218818afd3055febcaa6aae2}{I2\+C\+\_\+\+De\+Init}} (I2\+C\+\_\+\+Reg\+Def\+\_\+t $\ast$p\+I2\+Cx)
+\begin{DoxyCompactList}\small\item\em Deinitialize the I2\+Cx peripheral. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32f407xx__i2c__drv_8c_a93e096aab5a248b8fdde764c75e349c8}{I2\+C\+\_\+\+Master\+Send\+Data}} (I2\+C\+\_\+\+Handle\+\_\+t $\ast$p\+I2\+C\+Handle, uint8\+\_\+t p\+Tx\+Buffer, uint32\+\_\+t Len, uint8\+\_\+t Slave\+Addr)
+\begin{DoxyCompactList}\small\item\em Send data in master mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32f407xx__i2c__drv_8c_a56ee08b0b3c9182382d0c19e0cdc9ad0}{I2\+C\+\_\+\+I\+R\+Q\+Interrupt\+Config}} (uint8\+\_\+t I\+R\+Q\+Number, uint8\+\_\+t En)
+\begin{DoxyCompactList}\small\item\em Configure the S\+P\+Ix I\+RQ interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32f407xx__i2c__drv_8c_abe230d8f01511fd0684cff350b5521a4}{I2\+C\+\_\+\+I\+R\+Q\+Priority\+Config}} (uint8\+\_\+t I\+R\+Q\+Number, uint8\+\_\+t I\+R\+Q\+Priority)
+\begin{DoxyCompactList}\small\item\em Set I2\+Cx I\+RQ priority. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{stm32f407xx__i2c__drv_8c_ad0d15ed883cabc8a0668db3748efc7ea}{I2\+C\+\_\+\+Get\+Flag\+Status}} (I2\+C\+\_\+\+Reg\+Def\+\_\+t $\ast$p\+I2\+Cx, uint32\+\_\+t Flag\+Name)
+\begin{DoxyCompactList}\small\item\em Enable/disable the I2\+Cx peripheral clock. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32f407xx__i2c__drv_8c_abf81f1282d64fd5983e67046b8dcf928}{I2\+C\+\_\+\+Peripheral\+Control}} (I2\+C\+\_\+\+Reg\+Def\+\_\+t $\ast$p\+I2\+Cx, uint8\+\_\+t En)
+\begin{DoxyCompactList}\small\item\em Enable/disable the I2\+Cx peripheral. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak void \mbox{\hyperlink{stm32f407xx__i2c__drv_8c_ad5e0465cf519e2fe405470119045f003}{I2\+C\+\_\+\+Application\+Event\+Callback}} (I2\+C\+\_\+\+Handle\+\_\+t $\ast$p\+I2\+C\+Handle, uint8\+\_\+t App\+Ev)
+\begin{DoxyCompactList}\small\item\em Callback for I\+RQ. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{stm32f407xx__i2c__drv_8c_af1a3d37bde035b9e2d413cb182922f28}{R\+C\+C\+\_\+\+Get\+P\+L\+L\+Output\+Clk}} (void)
+\begin{DoxyCompactList}\small\item\em Get P\+LL clock frequency. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{stm32f407xx__i2c__drv_8c_a56b6c4b0dccac7a4933ea4b35f381794}{R\+C\+C\+\_\+\+Get\+P\+C\+L\+K1\+Value}} (void)
+\begin{DoxyCompactList}\small\item\em Get peripheral bus clock frequency. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This driver sets up a basic I/O interface for the S\+T\+M32\+F407xx I2C peripheral. 
+
+\begin{DoxyAuthor}{Author}
+Joseph Gillispie \href{mailto:jagt48@gmail.com}{\texttt{ jagt48@gmail.\+com}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{stm32f407xx__i2c__drv_8c_ad5e0465cf519e2fe405470119045f003}\label{stm32f407xx__i2c__drv_8c_ad5e0465cf519e2fe405470119045f003}} 
+\index{stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}!I2C\_ApplicationEventCallback@{I2C\_ApplicationEventCallback}}
+\index{I2C\_ApplicationEventCallback@{I2C\_ApplicationEventCallback}!stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_ApplicationEventCallback()}{I2C\_ApplicationEventCallback()}}
+{\footnotesize\ttfamily I2\+C\+\_\+\+Application\+Event\+Callback (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+\_\+t $\ast$}]{p\+I2\+C\+Handle,  }\item[{uint8\+\_\+t}]{App\+Ev }\end{DoxyParamCaption})}
+
+
+
+Callback for I\+RQ. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+I2\+C\+Handle} & Handle for I2\+Cx \\
+\hline
+\mbox{\texttt{ in}}  & {\em App\+Ev} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Can be overridden by user application 
+\end{DoxyNote}
+\mbox{\Hypertarget{stm32f407xx__i2c__drv_8c_a07e83806dd03ae8c1e8b0ac4b3e0d9f6}\label{stm32f407xx__i2c__drv_8c_a07e83806dd03ae8c1e8b0ac4b3e0d9f6}} 
+\index{stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}!I2C\_ClkCtrl@{I2C\_ClkCtrl}}
+\index{I2C\_ClkCtrl@{I2C\_ClkCtrl}!stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_ClkCtrl()}{I2C\_ClkCtrl()}}
+{\footnotesize\ttfamily I2\+C\+\_\+\+Clk\+Ctrl (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Reg\+Def\+\_\+t $\ast$}]{p\+I2\+Cx,  }\item[{uint8\+\_\+t}]{En }\end{DoxyParamCaption})}
+
+
+
+Enable/disable the I2\+Cx peripheral clock. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+I2\+Cx} & I2\+Cx peripheral \\
+\hline
+\mbox{\texttt{ in}}  & {\em En} & Peripheral clock setting\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{stm32f407xx__i2c__drv_8c_a23c006eb218818afd3055febcaa6aae2}\label{stm32f407xx__i2c__drv_8c_a23c006eb218818afd3055febcaa6aae2}} 
+\index{stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}!I2C\_DeInit@{I2C\_DeInit}}
+\index{I2C\_DeInit@{I2C\_DeInit}!stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_DeInit()}{I2C\_DeInit()}}
+{\footnotesize\ttfamily I2\+C\+\_\+\+De\+Init (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Reg\+Def\+\_\+t $\ast$}]{p\+I2\+Cx }\end{DoxyParamCaption})}
+
+
+
+Deinitialize the I2\+Cx peripheral. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+I2\+Cx} & I2\+Cx peripheral\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{stm32f407xx__i2c__drv_8c_ad0d15ed883cabc8a0668db3748efc7ea}\label{stm32f407xx__i2c__drv_8c_ad0d15ed883cabc8a0668db3748efc7ea}} 
+\index{stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}!I2C\_GetFlagStatus@{I2C\_GetFlagStatus}}
+\index{I2C\_GetFlagStatus@{I2C\_GetFlagStatus}!stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_GetFlagStatus()}{I2C\_GetFlagStatus()}}
+{\footnotesize\ttfamily I2\+C\+\_\+\+Get\+Flag\+Status (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Reg\+Def\+\_\+t $\ast$}]{p\+I2\+Cx,  }\item[{uint32\+\_\+t}]{Flag\+Name }\end{DoxyParamCaption})}
+
+
+
+Enable/disable the I2\+Cx peripheral clock. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+I2\+Cx} & I2\+Cx peripheral \\
+\hline
+\mbox{\texttt{ in}}  & {\em Flag\+Name} & Name of flag to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{stm32f407xx__i2c__drv_8c_ad35cc19f56a0a0c67570c2adc41fed14}\label{stm32f407xx__i2c__drv_8c_ad35cc19f56a0a0c67570c2adc41fed14}} 
+\index{stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}!I2C\_Init@{I2C\_Init}}
+\index{I2C\_Init@{I2C\_Init}!stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_Init()}{I2C\_Init()}}
+{\footnotesize\ttfamily I2\+C\+\_\+\+Init (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+\_\+t $\ast$}]{p\+I2\+C\+Handle }\end{DoxyParamCaption})}
+
+
+
+Initialize the I2\+Cx peripheral. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+I2\+C\+Handle} & I2\+Cx initialization parameters.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{stm32f407xx__i2c__drv_8c_a56ee08b0b3c9182382d0c19e0cdc9ad0}\label{stm32f407xx__i2c__drv_8c_a56ee08b0b3c9182382d0c19e0cdc9ad0}} 
+\index{stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}!I2C\_IRQInterruptConfig@{I2C\_IRQInterruptConfig}}
+\index{I2C\_IRQInterruptConfig@{I2C\_IRQInterruptConfig}!stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_IRQInterruptConfig()}{I2C\_IRQInterruptConfig()}}
+{\footnotesize\ttfamily I2\+C\+\_\+\+I\+R\+Q\+Interrupt\+Config (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{I\+R\+Q\+Number,  }\item[{uint8\+\_\+t}]{En }\end{DoxyParamCaption})}
+
+
+
+Configure the S\+P\+Ix I\+RQ interrupt. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em I\+R\+Q\+Number} & I\+RQ number of interrupt. \\
+\hline
+\mbox{\texttt{ in}}  & {\em En} & Mode setting\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{stm32f407xx__i2c__drv_8c_abe230d8f01511fd0684cff350b5521a4}\label{stm32f407xx__i2c__drv_8c_abe230d8f01511fd0684cff350b5521a4}} 
+\index{stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}!I2C\_IRQPriorityConfig@{I2C\_IRQPriorityConfig}}
+\index{I2C\_IRQPriorityConfig@{I2C\_IRQPriorityConfig}!stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_IRQPriorityConfig()}{I2C\_IRQPriorityConfig()}}
+{\footnotesize\ttfamily I2\+C\+\_\+\+I\+R\+Q\+Priority\+Config (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{I\+R\+Q\+Number,  }\item[{uint8\+\_\+t}]{I\+R\+Q\+Priority }\end{DoxyParamCaption})}
+
+
+
+Set I2\+Cx I\+RQ priority. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em I\+R\+Q\+Number} & I2\+Cx I\+RQ number \\
+\hline
+\mbox{\texttt{ in}}  & {\em I\+R\+Q\+Priority} & I2\+Cx I\+RQ priority\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{stm32f407xx__i2c__drv_8c_a93e096aab5a248b8fdde764c75e349c8}\label{stm32f407xx__i2c__drv_8c_a93e096aab5a248b8fdde764c75e349c8}} 
+\index{stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}!I2C\_MasterSendData@{I2C\_MasterSendData}}
+\index{I2C\_MasterSendData@{I2C\_MasterSendData}!stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_MasterSendData()}{I2C\_MasterSendData()}}
+{\footnotesize\ttfamily I2\+C\+\_\+\+Master\+Send\+Data (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+\_\+t $\ast$}]{p\+I2\+C\+Handle,  }\item[{uint8\+\_\+t}]{p\+Tx\+Buffer,  }\item[{uint32\+\_\+t}]{Len,  }\item[{uint8\+\_\+t}]{Slave\+Addr }\end{DoxyParamCaption})}
+
+
+
+Send data in master mode. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+I2\+C\+Handle} & Pointer to handle of I2C peripheral. \\
+\hline
+\mbox{\texttt{ in}}  & {\em p\+Tx\+Buffer} & Pointer to buffer to send. \\
+\hline
+\mbox{\texttt{ in}}  & {\em Len} & Length of the buffer to send. \\
+\hline
+\mbox{\texttt{ in}}  & {\em Slave\+Addr} & Address of the slave to send data to.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{stm32f407xx__i2c__drv_8c_abf81f1282d64fd5983e67046b8dcf928}\label{stm32f407xx__i2c__drv_8c_abf81f1282d64fd5983e67046b8dcf928}} 
+\index{stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}!I2C\_PeripheralControl@{I2C\_PeripheralControl}}
+\index{I2C\_PeripheralControl@{I2C\_PeripheralControl}!stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_PeripheralControl()}{I2C\_PeripheralControl()}}
+{\footnotesize\ttfamily I2\+C\+\_\+\+Peripheral\+Control (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Reg\+Def\+\_\+t $\ast$}]{p\+I2\+Cx,  }\item[{uint8\+\_\+t}]{En }\end{DoxyParamCaption})}
+
+
+
+Enable/disable the I2\+Cx peripheral. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+I2\+Cx} & I2\+Cx peripheral \\
+\hline
+\mbox{\texttt{ in}}  & {\em En} & Mode setting\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+\mbox{\Hypertarget{stm32f407xx__i2c__drv_8c_a56b6c4b0dccac7a4933ea4b35f381794}\label{stm32f407xx__i2c__drv_8c_a56b6c4b0dccac7a4933ea4b35f381794}} 
+\index{stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}!RCC\_GetPCLK1Value@{RCC\_GetPCLK1Value}}
+\index{RCC\_GetPCLK1Value@{RCC\_GetPCLK1Value}!stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}}
+\doxysubsubsection{\texorpdfstring{RCC\_GetPCLK1Value()}{RCC\_GetPCLK1Value()}}
+{\footnotesize\ttfamily R\+C\+C\+\_\+\+Get\+P\+C\+L\+K1\+Value (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get peripheral bus clock frequency. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Peripheral bus clock frequency.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{stm32f407xx__i2c__drv_8c_af1a3d37bde035b9e2d413cb182922f28}\label{stm32f407xx__i2c__drv_8c_af1a3d37bde035b9e2d413cb182922f28}} 
+\index{stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}!RCC\_GetPLLOutputClk@{RCC\_GetPLLOutputClk}}
+\index{RCC\_GetPLLOutputClk@{RCC\_GetPLLOutputClk}!stm32f407xx\_i2c\_drv.c@{stm32f407xx\_i2c\_drv.c}}
+\doxysubsubsection{\texorpdfstring{RCC\_GetPLLOutputClk()}{RCC\_GetPLLOutputClk()}}
+{\footnotesize\ttfamily R\+C\+C\+\_\+\+Get\+P\+L\+L\+Output\+Clk (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get P\+LL clock frequency. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+P\+LL clock frequency
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+none 
+\end{DoxyNote}
+Here is the caller graph for this function\+:
+% FIG 2

@@ -1,0 +1,127 @@
+/*
+ * stm32f407xx_gpio_drv.c
+ *
+ *  Created on: Jan 2, 2022
+ *      Author: joseph
+ */
+
+#include "stm32f407xx_gpio_drv.h"
+
+/********************************************************************
+ * GPIOx API
+ *******************************************************************/
+
+/**
+ * @fn			GPIO_ClkCtrl
+ *
+ * @brief 		Enables or disables the GPIOx peripheral clock.
+ *
+ * @param[in]	*pGPIOx	Pointer to the base address of the GPIOx register to be written to.
+ * @param[in]	En		Bit to ENABLE (1) or DISABLE (0) selected GPIOx clock.
+ *
+ * @retvalue 	none
+ *
+ * @Note		none
+ */
+void GPIO_ClkCtrl(GPIO_RegDef_t *pGPIOx, uint8_t En)
+{
+	if (En == ENABLE)
+	{
+		if (pGPIOx == GPIOA)
+		{
+			GPIOA_CLK_EN();
+		} else if (pGPIOx == GPIOB)
+		{
+			GPIOB_CLK_EN();
+		} else if (pGPIOx == GPIOC)
+		{
+			GPIOC_CLK_EN();
+		} else if (pGPIOx == GPIOD)
+		{
+			GPIOD_CLK_EN();
+		} else if (pGPIOx == GPIOE)
+		{
+			GPIOE_CLK_EN();
+		} else if (pGPIOx == GPIOF)
+		{
+			GPIOF_CLK_EN();
+		} else if (pGPIOx == GPIOG)
+		{
+			GPIOG_CLK_EN();
+		} else if (pGPIOx == GPIOH)
+		{
+			GPIOH_CLK_EN();
+		} else if (pGPIOx == GPIOI)
+		{
+			GPIOI_CLK_EN();
+		}
+	} else
+	{
+		if (pGPIOx == GPIOA)
+		{
+			GPIOA_CLK_DIS();
+		} else if (pGPIOx == GPIOB)
+		{
+			GPIOB_CLK_DIS();
+		} else if (pGPIOx == GPIOC)
+		{
+			GPIOC_CLK_DIS();
+		} else if (pGPIOx == GPIOD)
+		{
+			GPIOD_CLK_DIS();
+		} else if (pGPIOx == GPIOE)
+		{
+			GPIOE_CLK_DIS();
+		} else if (pGPIOx == GPIOF)
+		{
+			GPIOF_CLK_DIS();
+		} else if (pGPIOx == GPIOG)
+		{
+			GPIOG_CLK_DIS();
+		} else if (pGPIOx == GPIOH)
+		{
+			GPIOH_CLK_DIS();
+		} else if (pGPIOx == GPIOI)
+		{
+			GPIOI_CLK_DIS();
+		}
+	}
+}
+
+/*Initialization/Deinitialization*/
+void GPIO_Init(GPIO_Handle_t *pGPIOHande)
+{
+
+}
+void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)
+{
+
+}
+
+/*GPIO Input */
+uint8_t GPIO_ReadPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
+{
+
+}
+uint16_t GPIO_ReadPort(GPIO_RegDef_t *pGPIOx)
+{
+
+}
+
+/*GPIO Output*/
+void GPIO_WritePin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t Value)
+{
+
+}
+void GPIO_WritePort(GPIO_RegDef_t *pGPIOx, uint16_t Value)
+{
+
+}
+void GPIO_TogglePin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
+{
+
+}
+
+/*GPIO Interrupt*/
+void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t En);
+void GPIO_IRQHandler(uint8_t PinNumber);

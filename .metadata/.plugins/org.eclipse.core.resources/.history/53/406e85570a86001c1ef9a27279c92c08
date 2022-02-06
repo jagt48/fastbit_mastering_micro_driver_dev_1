@@ -1,0 +1,17 @@
+/*
+ * 007_i2c_master_tx_testing.c
+ *
+ *  Created on: Feb 4, 2022
+ *      Author: joseph
+ */
+
+#include "stm32f407xx_i2c_drv.h"
+#include "stm32f407xx_gpio_drv.h"
+#include "string.h"
+
+int main(void)
+{
+
+	return 0;
+}
+

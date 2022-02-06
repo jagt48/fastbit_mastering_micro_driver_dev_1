@@ -1,0 +1,10 @@
+18:00:37 **** Incremental Build of configuration Debug for project spi_stm32cube_setup ****
+make -j4 all 
+arm-none-eabi-size   spi_stm32cube_setup.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33100	    152	   3688	  36940	   904c	spi_stm32cube_setup.elf
+Finished building: default.size.stdout
+ 
+
+18:00:38 Build Finished. 0 errors, 0 warnings. (took 818ms)
+

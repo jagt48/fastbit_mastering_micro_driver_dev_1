@@ -1,0 +1,240 @@
+/*
+ * stm32f407xx_spi_drv.c
+ *
+ *  Created on: Jan 6, 2022
+ *      Author: joseph
+ */
+
+#include "stm32f407xx_spi_drv.h"
+
+/********************************************************************
+ * @fun				SPI_ClkCtrl
+ *
+ * @brief
+ *
+ * @param[in]		pSPIx
+ * @param[in]		En
+ *
+ * @return			none
+ *
+ * @Note
+ *******************************************************************/
+void SPI_ClkCtrl(SPI_RegDef_t *pSPIx, uint8_t En)
+{
+	if (En == ENABLE)
+	{
+		if (pSPIx == SPI1)
+		{
+			SPI1_CLK_EN();
+		} else if (pSPIx == SPI2)
+		{
+			SPI2_CLK_EN();
+		} else if (pSPIx == SPI3)
+		{
+			SPI3_CLK_EN();
+		}
+	} else
+	{
+		if (pSPIx == SPI1)
+		{
+			SPI1_CLK_DIS();
+		} else if (pSPIx == SPI2)
+		{
+			SPI2_CLK_DIS();
+		} else if (pSPIx == SPI3)
+		{
+			SPI3_CLK_DIS();
+		}
+
+	}
+}
+
+/********************************************************************
+ * @fun				SPI_Init
+ *
+ * @brief
+ *
+ * @param[in]
+ * @param[in]
+ *
+ * @return			none
+ *
+ * @Note
+ *******************************************************************/
+void SPI_Init(SPI_Handle_t *pSPIHandle)
+{
+	uint32_t temp = 0;
+
+	// 1. Configure SPI_CR1.
+	// a. Device mode
+	temp |= (pSPIHandle->SPIConfig.SPI_DeviceMode << SPI_CR1_MSTR);
+
+	// b. Bus configuration
+	if (pSPIHandle->SPIConfig.SPI_BusConfig == SPI_BUS_CONFIG_FD)
+	{
+		// BIDI mode should be cleared.
+		temp &= ~(1 << SPI_CR1_BIDIMODE);
+	} else if (pSPIHandle->SPIConfig.SPI_BusConfig == SPI_BUS_CONFIG_HD)
+	{
+		// BIDI mode should be set.
+		temp |= (1 << SPI_CR1_BIDIMODE);
+	} else if (pSPIHandle->SPIConfig.SPI_BusConfig == SPI_BUS_CONFIG_SIM_RX)
+	{
+		// BIDI mode should be cleared.
+		temp &= ~(1 << SPI_CR1_BIDIMODE);
+		// RXONLY bit should be set.
+		temp |= (1 << SPI_CR1_RXONLY);
+	}
+
+	// c. SPI serial clock (baud rate).
+	temp |= (pSPIHandle->SPIConfig.SPI_SclkSpeed << SPI_CR1_BR);
+
+	// d. Data frame size.
+	temp |= (pSPIHandle->SPIConfig.SPI_DFF << SPI_CR1_DFF);
+
+	// e. Clock polarity.
+	temp |= (pSPIHandle->SPIConfig.SPI_CPOL << SPI_CR1_CPOL);
+
+	// f. Clock phase.
+	temp |= (pSPIHandle->SPIConfig.SPI_CPHA << SPI_CR1_CPHA);
+
+	pSPIHandle->pSPIx->CR1 = temp;
+}
+
+/********************************************************************
+ * @fun				SPI_DeInit
+ *
+ * @brief			Reset the specified SPIx peripheral.
+ *
+ * @param[in]		*pSPIx SPIx peripheral to be reset.
+ *
+ * @return			none
+ *
+ * @Note
+ *******************************************************************/
+void SPI_DeInit(SPI_RegDef_t *pSPIx)
+{
+	if(pSPIx == SPI1)
+	{
+		SPI1_REG_RST();
+	} else if (pSPIx == SPI2)
+	{
+		SPI2_REG_RST();
+	} else if (pSPIx == SPI3)
+	{
+		SPI3_REG_RST();
+	}
+}
+
+/********************************************************************
+ * @fun				SPI_SendData
+ *
+ * @brief			Send data from buffer using blocking method.
+ *
+ * @param[in]
+ * @param[in]
+ *
+ * @return			none
+ *
+ * @Note
+ *******************************************************************/
+void SPI_SendData(SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer, uint32_t Len)
+{
+	uint16_t buffer;
+	// 1. Check if Len != 0, otherwise exit.
+	while (Len != 0)
+	{
+		// 2. Wait until Tx buffer empty (TXE is set).
+		SPI_GetFlagStatus();
+		while (!(pSPIx->SR & (1 << 1)));
+
+		// 3. If DFF cleared, load DR with 8 bits and decrement length by one.
+		// If DFF set, load DR with 16 bits and decrement length by two.
+		if ((pSPIx->CR1) & (SPI_DFF_8BITS << SPI_CR1_DFF) == SPI_DFF_8BITS)
+		{
+			buffer = *pTxBuffer
+			pSPIx->DR =;
+		} else if (pSPIx->CR1) & (SPI_DFF_16BITS << SPI_CR1_DFF) == SPI_DFF_16BITS)
+		{
+
+		}
+
+
+		// 4. Repeat 1-3.
+	}
+
+}
+
+/********************************************************************
+ * @fun				SPI_ReceiveData
+ *
+ * @brief
+ *
+ * @param[in]
+ * @param[in]
+ *
+ * @return			none
+ *
+ * @Note
+ *******************************************************************/
+void SPI_ReceiveData(SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint32_t Len)
+{
+
+}
+
+/********************************************************************
+ * @fun				SPI_IRQInterruptConfig
+ *
+ * @brief
+ *
+ * @param[in]
+ * @param[in]
+ *
+ * @return			none
+ *
+ * @Note
+ *******************************************************************/
+void SPI_IRQInterruptConfig(uint8_t IRQNumber, uint8_t En)
+{
+
+}
+
+/********************************************************************
+ * @fun				SPI_IRQPriorityConfig
+ *
+ * @brief
+ *
+ * @param[in]
+ * @param[in]
+ *
+ * @return			none
+ *
+ * @Note
+ *******************************************************************/
+void SPI_IRQPriorityConfig(uint8_t IRQNumber, uint8_t IRQPriority)
+{
+
+}
+
+/********************************************************************
+ * @fun				SPI_IRQHandling
+ *
+ * @brief
+ *
+ * @param[in]		pSPIx
+ * @param[in]		En
+ *
+ * @return			none
+ *
+ * @Note
+ *******************************************************************/
+void SPI_IRQHandling(SPI_Handle_t *pHandle)
+{
+
+}
+
+uint8_t SPI_GetFlagStatus(SPI_RegDef_t *pSPIx, uint32_t FlagName)
+{
+
+	return FLAG_RESET;
+}
